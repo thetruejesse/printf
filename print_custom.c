@@ -18,21 +18,21 @@ char *s = va_arg(l, char *);
 
 (void)f;
 if (!s)
-	return (_puts("(null)"));
+return (_puts("(null)"));
 
 for (i = 0; s[i]; i++)
 {
-	if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
-	{
-		_puts("\\x");
-		count += 2;
-		res = convert(s[i], 16, 0);
-		if (!res[1])
-			count += _putchar('0');
-		count += _puts(res);
-	}
-	else
-		count += _putchar(s[i]);
+if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
+{
+_puts("\\x");
+count += 2;
+res = convert(s[i], 16, 0);
+if (!res[1])
+count += _putchar('0');
+count += _puts(res);
+}
+else
+count += _putchar(s[i]);
 }
 return (count);
 }
@@ -53,16 +53,16 @@ char *s = va_arg(l, char *);
 (void)f;
 for (j = 0; s[j]; j++)
 {
-	if (s[j] < 'A' || (s[j] > 'Z' && s[j] < 'a') || s[j] > 'z')
-		_putchar(s[j]);
-	else
-	{
-		for (i = 0; i <= 52; i++)
-		{
-			if (s[j] == rot13[i])
-				_putchar(ROT13[i]);
-		}
-	}
+if (s[j] < 'A' || (s[j] > 'Z' && s[j] < 'a') || s[j] > 'z')
+_putchar(s[j]);
+else
+{
+for (i = 0; i <= 52; i++)
+{
+if (s[j] == rot13[i])
+_putchar(ROT13[i]);
+}
+}
 }
 return (j);
 }

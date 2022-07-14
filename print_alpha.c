@@ -14,7 +14,7 @@ char *s = va_arg(l, char *);
 (void)f;
 
 if (!s)
-	s = "(null)";
+s = "(null)";
 return (_puts(s));
 }
 

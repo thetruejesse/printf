@@ -22,30 +22,30 @@ register int count = 0;
 
 va_start(arguments, format);
 if (!format || (format[0] == '%' && !format[1]))
-	return (-1);
+return (-1);
 if (format[0] == '%' && format[1] == ' ' && !format[2])
-	return (-1);
+return (-1);
 for (p = format; *p; p++)
 {
-	if (*p == '%')
-	{
-		p++;
-		if (*p == '%')
-		{
-			count += _putchar('%');
+if (*p == '%')
+{
+p++;
+if (*p == '%')
+{
+count += _putchar('%');
 	
-			continue;
-		}
-		while (get_flag(*p, &flags))
-			p++;
-		pfunc = get_print(*p);
-		count += (pfunc)
-			? pfunc(arguments, &flags)
-			: _printf("%%%c", *p);
+continue;
+}
+while (get_flag(*p, &flags))
+p++;
+pfunc = get_print(*p);
+count += (pfunc)
+? pfunc(arguments, &flags)
+: _printf("%%%c", *p);
 	
-	}
-	else
-		count += _putchar(*p);
+}
+else
+count += _putchar(*p);
 }
 _putchar(-1);
 va_end(arguments);
